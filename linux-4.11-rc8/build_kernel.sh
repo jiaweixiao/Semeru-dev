@@ -4,9 +4,9 @@
 ### Parameters
 
 version="4.11.0-rc8"
-#LocalVersion="Semeru"
+LocalVersion="-semeru"
 # Or remove the suffix
-LocalVersion=
+# LocalVersion=
 
 num_cores=`nproc --all`
 
@@ -115,7 +115,7 @@ update_grub_entries () {
 		sudo update-grub2
 
     echo "Warning : For Ubuntu, please edit /etc/default/grub to specify the right boot kernel verion"
-    echo "Example : GRUB_DEFAULT='Advanced options for Ubuntu>Ubuntu, with Linux 4.11.0-rc8'"  
+    echo "Example : GRUB_DEFAULT='Advanced options for Ubuntu>Ubuntu, with Linux ${version}${LocalVersion}'"  
 
 	fi
     
@@ -131,9 +131,9 @@ then
 	sleep 1
 #	make oldconfig
 
-	echo "make LOCALVERSION=${localVersion}  -j${num_cores}"
+	echo "make LOCALVERSION=${LocalVersion}  -j${num_cores}"
 	sleep 1
-	make LOCALVERSION="${localVersion}"  -j${num_cores}
+	make LOCALVERSION="${LocalVersion}"  -j${num_cores}
 
 elif [ "${op}" = "install" ]
 then
