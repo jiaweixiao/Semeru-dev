@@ -56,7 +56,8 @@ delete_old_kernel_contents () {
 install_new_kernel_contents () {
 	echo "install kernel modules"
 	sleep 1
-	sudo make modules_install
+	# strip kernel module to reduce initrd.img size
+	sudo make INSTALL_MOD_STRIP=1 modules_install
 
 	echo "install kernel image"
 	sleep 1
