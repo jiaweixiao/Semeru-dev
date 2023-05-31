@@ -388,31 +388,31 @@ fi
 
 create_package "$packagename" "$tmpdir"
 
-if [ -n "$BUILD_DEBUG" ] ; then
-	# Build debug package
-	# Different tools want the image in different locations
-	# perf
-	mkdir -p $dbg_dir/usr/lib/debug/lib/modules/$version/
-	cp vmlinux $dbg_dir/usr/lib/debug/lib/modules/$version/
-	# systemtap
-	mkdir -p $dbg_dir/usr/lib/debug/boot/
-	ln -s ../lib/modules/$version/vmlinux $dbg_dir/usr/lib/debug/boot/vmlinux-$version
-	# kdump-tools
-	ln -s lib/modules/$version/vmlinux $dbg_dir/usr/lib/debug/vmlinux-$version
-
-	cat <<EOF >> debian/control
-
-Package: $dbg_packagename
-Section: debug
-Provides: linux-debug, linux-debug-$version
-Architecture: any
-Description: Linux kernel debugging symbols for $version
- This package will come in handy if you need to debug the kernel. It provides
- all the necessary debug symbols for the kernel and its modules.
-EOF
-
-	create_package "$dbg_packagename" "$dbg_dir"
-fi
+#if [ -n "$BUILD_DEBUG" ] ; then
+#	# Build debug package
+#	# Different tools want the image in different locations
+#	# perf
+#	mkdir -p $dbg_dir/usr/lib/debug/lib/modules/$version/
+#	cp vmlinux $dbg_dir/usr/lib/debug/lib/modules/$version/
+#	# systemtap
+#	mkdir -p $dbg_dir/usr/lib/debug/boot/
+#	ln -s ../lib/modules/$version/vmlinux $dbg_dir/usr/lib/debug/boot/vmlinux-$version
+#	# kdump-tools
+#	ln -s lib/modules/$version/vmlinux $dbg_dir/usr/lib/debug/vmlinux-$version
+#
+#	cat <<EOF >> debian/control
+#
+#Package: $dbg_packagename
+#Section: debug
+#Provides: linux-debug, linux-debug-$version
+#Architecture: any
+#Description: Linux kernel debugging symbols for $version
+# This package will come in handy if you need to debug the kernel. It provides
+# all the necessary debug symbols for the kernel and its modules.
+#EOF
+#
+#	create_package "$dbg_packagename" "$dbg_dir"
+#fi
 
 if [ "x$1" = "xdeb-pkg" ]
 then

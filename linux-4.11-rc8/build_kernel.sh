@@ -135,6 +135,12 @@ then
 	sleep 1
 	make LOCALVERSION="${LocalVersion}"  -j${num_cores}
 
+elif [ "${op}" = "builddeb" ]
+then
+	echo "make deb-pkg LOCALVERSION=${LocalVersion}  -j${num_cores}"
+	sleep 1
+	make deb-pkg LOCALVERSION="${LocalVersion}"  -j${num_cores}
+
 elif [ "${op}" = "install" ]
 then
 	delete_old_kernel_contents

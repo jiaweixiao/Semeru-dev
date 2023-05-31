@@ -1,3 +1,8 @@
 CPU-Server/build/
 Memory-Server/build/
 linux-4.11-rc8/.tmp_versions
+linux-4.11-rc8/.tmp_System.map
+linux-4.11-rc8/.tmp_vmlinux1
+linux-4.11-rc8/.tmp_vmlinux2
+linux-4.11-rc8/.version
+*linux*semeru*
