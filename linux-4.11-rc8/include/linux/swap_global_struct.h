@@ -33,7 +33,7 @@
 
 // #1 enable the swp_entry_t to virtual address remap or not
 // The memory range not in the RANGE will be not swapped out by adding them into unevictable list.
-#define ENABLE_SWP_ENTRY_VIRT_REMAPPING 1
+//#define ENABLE_SWP_ENTRY_VIRT_REMAPPING 1
 
 // #2 This sync is uselesss. Because all the unmapped dirty page will be writteen to swap partition immediately.
 //#define SYNC_PAGE_OUT
@@ -153,7 +153,7 @@ extern uint64_t RMEM_SIZE_IN_PHY_SECT;			// [?] Where is it defined ?
 
 
 // Each request can have multiple bio, but each bio can only have 1  pages ??
-#define MAX_REQUEST_SGL								 32 		// number of segments, get from ibv_query_device. Use 30, or it's not safe..
+#define MAX_REQUEST_SGL								 19 		// number of segments, get from ibv_query_device. Use 30, or it's not safe..
 //#define MAX_SEGMENT_IN_REQUEST			 32 // use the MAX_REQUEST_SGL
 //#define ONE_SIEDED_RDMA_BUF_SIZE			(u64)MAX_REQUEST_SGL * PAGE_SIZE
 

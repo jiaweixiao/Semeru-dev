@@ -44,7 +44,7 @@
 
 
 
-#define RDMA_QUEUE_NUM  16  // Larger or equal to the online core of CPU server
+#define RDMA_QUEUE_NUM  80  // Larger or equal to the online core of CPU server
 
 
 /**

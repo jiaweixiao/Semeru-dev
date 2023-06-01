@@ -203,7 +203,7 @@
 #define NUM_OF_MEMORY_SERVER 1  // default 2 memory servers
 #define CUR_MEMORY_SERVER_ID 0
 
-static const char cur_mem_server_ip[]    = "10.0.0.51";
+static const char cur_mem_server_ip[]    = "172.16.30.1";
 static const char cur_mem_server_port[]  = "9400";
 
 // ###

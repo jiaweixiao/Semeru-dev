@@ -25,7 +25,7 @@ home_dir="$HOME"
 num_core=`nproc --all`
 # in MB, 32GB as default
 build_mem="32768"
-boot_jdk="${home_dir}/jdk-12.0.2"
+boot_jdk="/usr/lib/jvm/java-11-openjdk-amd64"
 
 
 ## Do the action
