@@ -118,6 +118,9 @@ AC_DEFUN_ONCE([LIB_SETUP_LIBRARIES],
   # Math library
   BASIC_JVM_LIBS="$LIBM"
 
+  # RDMA library
+  BASIC_JVM_LIBS="$BASIC_JVM_LIBS -lrdmacm -libverbs"
+
   # Dynamic loading library
   if test "x$OPENJDK_TARGET_OS" = xlinux || test "x$OPENJDK_TARGET_OS" = xsolaris || test "x$OPENJDK_TARGET_OS" = xaix; then
     BASIC_JVM_LIBS="$BASIC_JVM_LIBS $LIBDL"
