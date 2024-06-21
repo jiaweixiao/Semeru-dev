@@ -30,7 +30,7 @@ semeru_cpu_server-y	+= local_dram.o
 #semeru_cpu_server-y += local_block_device.o  # merged into .so
 
 
-
+EXTRA_CFLAGS += -Wno-error=incompatible-pointer-types
 
 
 
