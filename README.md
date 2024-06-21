@@ -193,6 +193,9 @@ The next step is to install the LJVM on each memory server.
 - Build and install the LJVM
 
   ```bash
+  # Change the `RDMA_QUEUE_NUM` in ~/Semeru/Memory-Server/src/hotspot/share/runtime/rdma_comm.hpp
+  # It should equal to the online core of CPU server
+
   # Use the same ${build_mode} as the CPU-server JVM.
   cd ~/Semeru/Memory-Server/
   ./build_memory_server.sh ${build_mode}
@@ -251,6 +254,12 @@ To run applications, we ﬁrst need to connect the CPU server with memory server
   # with the memory servers automatically.
   # In this case, we recommend to restart the CPU server for performance test.
   # Because the crash of memory servers may cause kernel memory leak of CPU server.
+  ```
+  **Note: make sure there is only one swap device after successfully connect with memory servers.**
+  ```bash
+  swapon -s
+  # Filename                                Type            Size    Used    Priority
+  # /your/path/to/swapfile                  file            33554428        3028    -1
   ```
 
 - Set a CPU server cache size limit for an application

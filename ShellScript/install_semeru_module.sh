@@ -49,7 +49,8 @@ fi
 function close_swap_partition () {
 
   echo "Close current Swap Partition"
-  swap_bd=$(swapon -s | grep "dev" | cut -d " " -f 1 )
+  # Support for CentOS and Ubuntu
+  swap_bd=$(swapon -s | grep -e "dev" -e "swap" | cut -d " " -f 1 )
   
   if [ -z "${swap_bd}" ]
   then
