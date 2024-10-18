@@ -19,7 +19,7 @@ then
 	exit
 fi
 
-home_dir="$HOME"
+home_dir="$HOME/jdks"
 
 # Both available cores && number of jobs
 num_core=`nproc --all`
@@ -32,7 +32,7 @@ boot_jdk="${home_dir}/jdk-12.0.2"
 
 if [ "${mode}" = "slowdebug"  ]
 then
-	./configure --prefix=${home_dir}/jdk12u-self-build  --with-debug-level=slowdebug   --with-extra-cxxflags="-lrdmacm -libverbs" --with-extra-ldflags="-lrdmacm -libverbs"  --with-num-cores=${num_core} --with-jobs=${num_core} --with-memory-size=${build_mem} --with-boot-jdk=${boot_jdk} 
+	./configure --prefix=${home_dir}/jdk12u-self-build  --with-debug-level=slowdebug   --with-target-bits=64 --with-extra-cxxflags="-lrdmacm -libverbs" --with-extra-ldflags="-lrdmacm -libverbs"  --with-num-cores=${num_core} --with-jobs=${num_core} --with-memory-size=${build_mem} --with-boot-jdk=${boot_jdk} 
 
 elif [ "${mode}" = "fastdebug"  ]
 then
@@ -40,7 +40,7 @@ then
 
 elif [ "${mode}" = "release"  ]
 then
-	./configure --prefix=${home_dir}/jdk12u-self-build  --with-debug-level=release   --with-extra-cxxflags="-lrdmacm -libverbs" --with-extra-ldflags="-lrdmacm -libverbs"  --with-num-cores=${num_core} --with-jobs=${num_core} --with-memory-size=${build_mem} --with-boot-jdk=${boot_jdk} 
+	./configure --prefix=${home_dir}/jdk12u-self-build  --with-debug-level=release --with-target-bits=64  --with-extra-cxxflags="-lrdmacm -libverbs" --with-extra-ldflags="-lrdmacm -libverbs"  --with-num-cores=${num_core} --with-jobs=${num_core} --with-memory-size=${build_mem} --with-boot-jdk=${boot_jdk}
 
 elif [ "${mode}" = "build"  ]
 then

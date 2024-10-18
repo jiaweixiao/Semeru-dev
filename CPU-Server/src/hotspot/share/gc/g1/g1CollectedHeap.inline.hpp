@@ -30,6 +30,7 @@
 #include "gc/g1/g1CollectorState.hpp"
 #include "gc/g1/heapRegionManager.inline.hpp"
 #include "gc/g1/heapRegionSet.inline.hpp"
+#include "gc/shared/gcStats.hpp"
 #include "gc/shared/taskqueue.inline.hpp"
 #include "runtime/orderAccess.hpp"
 

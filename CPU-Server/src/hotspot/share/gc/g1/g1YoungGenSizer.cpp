@@ -32,27 +32,27 @@
 G1YoungGenSizer::G1YoungGenSizer() : _sizer_kind(SizerDefaults),
   _adaptive_size(true), _min_desired_young_length(0), _max_desired_young_length(0) {
 
-  // Semeru CPU
-  // override the NewRatio
-  if(FLAG_IS_CMDLINE(SemeruLocalCachePercent)){
+  // // Semeru CPU
+  // // override the NewRatio
+  // if(FLAG_IS_CMDLINE(SemeruLocalCachePercent)){
 
-    if (FLAG_IS_CMDLINE(NewSize) || FLAG_IS_CMDLINE(MaxNewSize)) {
-      guarantee(false, "Do NOT set -XX:NewSize OR -XX:MaxNewSize and -XX:SemeruLocalCachePercent at the same time.");
-    }
+  //   if (FLAG_IS_CMDLINE(NewSize) || FLAG_IS_CMDLINE(MaxNewSize)) {
+  //     guarantee(false, "Do NOT set -XX:NewSize OR -XX:MaxNewSize and -XX:SemeruLocalCachePercent at the same time.");
+  //   }
 
-    _sizer_kind = SizerNewRatio;
-    _adaptive_size = false;
+  //   _sizer_kind = SizerNewRatio;
+  //   _adaptive_size = false;
 
-    if(SemeruLocalCachePercent <=30 ){
-      NewRatio = 5;
-    }else if(SemeruLocalCachePercent <= 50){
-      NewRatio = 3;
-    }else{
-      NewRatio = 2; // the default value.
-    }
+  //   if(SemeruLocalCachePercent <=30 ){
+  //     NewRatio = 5;
+  //   }else if(SemeruLocalCachePercent <= 50){
+  //     NewRatio = 3;
+  //   }else{
+  //     NewRatio = 2; // the default value.
+  //   }
     
-    return;
-  }
+  //   return;
+  // }
 
 
   if (FLAG_IS_CMDLINE(NewRatio)) {
